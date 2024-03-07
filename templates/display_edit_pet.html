@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Pet</title>
+</head>
+<body>
+    <h1>Edit Pet</h1>
+    <form method="post" action="{{ url_for('add_pet') }}">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.name.label }}
+            {{ form.name(size=40) }}
+            {% for error in form.name.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.species.label }}
+            {{ form.species() }}
+            {% for error in form.species.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.photo_url.label }}
+            {{ form.photo_url(size=40) }}
+            {% for error in form.photo_url.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.age.label }} 
+            {{ form.age(size=4) }}
+            {% for error in form.age.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.notes.label }}
+            {{ form.notes(rows=4, cols=40) }}
+            {% for error in form.notes.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.available.label }}
+            {{ form.available() }}
+            {% for error in form.available.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <br>
+        <input type="submit" value="Add Pet">
+    </form>
+</body>
+</html>
+
